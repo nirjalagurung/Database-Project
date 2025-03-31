@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>Checkout</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	</head>
+	<body>
+		<header>
+			<h1> Library!</h1>
+			<button class="logout-btn">Logout</button>
+		</header>
+		<div class="container">	
+			<main>
+				<h2>Checkout Books</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Author</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody id="checkout-list">
+						<tr>
+							<td colspan="3">No books selected for checkout.</td>
+						</tr>
+					</tbody>
+				</table>
+				<button id="confirm-checkout" class="checkout-btn">Confirm Checkout</button>
+			</main>
+		</div>
+		<footer>
+			<p>&copy; 2025 Library!</p>
+		</footer>	
+	    <script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const checkoutBooks = [
+					{ title: "1984", author: "George Orwell" },
+					{ title: "To Kill a Mockingbird", author: "Harper Lee" }
+				];
+				
+				const tableBody = document.getElementById("checkout-list");
+				tableBody.innerHTML = "";
+				checkoutBooks.forEach(book => {
+					const row = `<tr>
+						<td>${book.title}</td>
+						<td>${book.author}</td>
+						<td><button class='remove-btn'>Remove</button></td>
+					</tr>`;
+					tableBody.innerHTML += row;
+				});
+			});
+		</script>	
+	</body>
+</html>

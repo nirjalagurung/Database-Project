@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Book Search</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	</head>		
+	<body>
+		<header>
+			<h1>Library!</h1>
+			<button class="logout-btn">Logout</button>
+		</header>
+		<div class="container">
+			<nav class="sidebar">
+				<ul>
+					<li><a href="dashboard.html">Dashboard</a></li>
+					<li><a href="booksearch.html">Search Books</a></li>
+					<li><a href="borrowed.html">My Borrowed Books</a></li>
+					<li><a href="memberprofile.html">Profile</a></li>
+					<li><a href="adminpanel.html">Admin Panel</a></li>
+				</ul>
+			</nav>
+			<main>
+				<section class="search-container">
+					<input type="text" id="searchInput" placeholder="Search for books...">
+					<button onclick="fetchBooks()">Search</button>
+				</section>
+				<section class="book-list" id="bookList"></section>
+			</main>
+		</div>
+		<footer>
+			<p>&copy; 2025 Library!</p>
+		</footer>
+		<script>
+			async function searchBooks() {
+				const query = document.getElementById("searchInput").value.trim();
+				if (!query) {
+					alert("Please enter a search term.");
+					return;
+				}
+	
+				try {
+					// Fetch books from the Gutendex API
+					const response = await fetch(`https://gutendex.com/books/?search=${query}`);
+					const data = await response.json();
+	
+					// Get the list container
+					const bookList = document.getElementById("bookList");
+					bookList.innerHTML = ""; // Clear previous results
+	
+					// Check if books are found
+					if (data.results.length === 0) {
+						bookList.innerHTML = "<p>No books found.</p>";
+						return;
+					}
+	
+					// Loop through results and display them
+					data.results.forEach(book => {
+						bookList.innerHTML += `<li>
+							<a href="bookdetails.html?id=${book.id}">${book.title}</a>
+							by ${book.authors.map(author => author.name).join(", ")}
+						</li>`;
+					});
+	
+				} catch (error) {
+					console.error("Error fetching books:", error);
+					alert("Failed to fetch books.");
+				}
+			}
+		</script>
+		<!--<script>
+			async function fetchBooks() {
+				const query = document.getElementById('searchInput').value;
+				if (!query) {
+					alert("Please enter a search term.");
+					return;
+				}
+				
+				try {
+					const response = await fetch(`https://gutendex.com/books/?search=${query}`);
+					if(!response.ok){
+					throw new Error("Failed to fetch books.");
+					}
+					const data = await response.json();
+					displayBooks(data.results);
+				} catch (error) {
+					console.error("Error fetching books:", error);
+					alert("An error occurred while fetching books. Please try again.");
+				}
+			}
+	
+			function displayBooks(books) {
+				const bookList = document.getElementById('bookList');
+				bookList.innerHTML = ''; // Clear previous results
+				books.forEach(book => {
+					const bookItem = document.createElement('div');
+					bookItem.classList.add('book-item');
+					bookItem.innerHTML = `
+						<h3>${book.title}</h3>
+						<p>Author: ${book.authors.map(author => author.name).join(', ')}</p>
+						<a href="${book.formats['text/html'] || book.formats['text/plain']}" target="_blank" class="btn">Read</a>
+					`;
+					bookList.appendChild(bookItem);
+				});
+			}
+		</script>-->
+	</body>
+</html>

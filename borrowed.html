@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<title>Borrowed Books</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	</head>
+	<body>
+		<header>
+            <h1> Library!</h1>
+            <button class="logout-btn">Logout</button>
+		</header>
+		<div class="container">
+            <nav class="sidebar">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="booksearch.html">Search Books</a></li>
+                    <li><a href="borrowed.html">My Borrowed Books</a></li>
+                    <li><a href="memberprofile.html">Profile</a></li>
+                </ul>
+            </nav>	
+            <main>
+                <h2>Borrowed Books</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Due Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="borrowed-books-list">
+                    <tr>
+                        <td colspan="4">Loading borrowed books...</td>
+                    </tr>
+                </tbody>
+            </table>
+            </main>
+		</div>
+        <footer>
+			<p>&copy; 2025 Library!</p>
+		</footer>
+		<script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const borrowedBooks = [
+                    { title: "Moby Dick", author: "Herman Melville", dueDate: "2025-04-15" },
+                    { title: "Pride and Prejudice", author: "Jane Austen", dueDate: "2025-04-10" }
+                ];
+                
+                const tableBody = document.getElementById("borrowed-books-list");
+                tableBody.innerHTML = "";
+                borrowedBooks.forEach(book => {
+                    const row = `<tr>
+                        <td>${book.title}</td>
+                        <td>${book.author}</td>
+                        <td>${book.dueDate}</td>
+                        <td><button class="return-btn">Return</button></td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            });
+        </script>
+	</body>
+</html>

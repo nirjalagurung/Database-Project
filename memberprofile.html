@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title>Profile</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	</head>
+	<body>
+		<header>
+			<h1> Library!</h1>
+			<button class="logout-btn">Logout</button>
+		</header>
+		<div class="container">
+			<nav class="sidebar">
+				<ul>
+					<li><a href="dashboard.html">Dashboard</a></li>
+					<li><a href="booksearch.html">Search Books</a></li>
+					<li><a href="borrowed.html">My Borrowed Books</a></li>
+					<li><a href="memberprofile.html">Profile</a></li>
+					<li><a href="adminpanel.html">Admin Panel</a></li>
+				</ul>
+			</nav>	
+			<main>
+				<div class="profile-container">
+					<h2>User Profile</h2>
+					<div class="profile-details">
+						<p><strong>Name:</strong> <span id="user-name">John Doe</span></p>
+						<p><strong>Email:</strong> <span id="user-email">johndoe@example.com</span></p>
+						<p><strong>Membership Status:</strong> <span id="user-status">Active</span></p>
+					</div>
+					<h3>Borrowed Books</h3>
+					<ul id="borrowed-books">
+						<li>Loading borrowed books...</li>
+					</ul>
+					<button class="edit-profile-btn">Edit Profile</button>
+				</div>
+			</main>
+		</div>
+		<footer>
+			<p>&copy; 2025 Library!</p>
+		</footer>
+		<script>
+			function loadUserProfile() {
+				// Simulated user data (replace with API call or backend data)
+				const user = {
+					name: "John Doe",
+					email: "johndoe@example.com",
+					status: "Active",
+					borrowedBooks: [
+						"The Great Gatsby",
+						"1984",
+						"To Kill a Mockingbird"
+					]
+				};
+				
+				document.getElementById("user-name").textContent = user.name;
+				document.getElementById("user-email").textContent = user.email;
+				document.getElementById("user-status").textContent = user.status;
+				
+				const borrowedBooksList = document.getElementById("borrowed-books");
+				borrowedBooksList.innerHTML = "";
+				
+				if (user.borrowedBooks.length === 0) {
+					borrowedBooksList.innerHTML = "<li>No borrowed books.</li>";
+				} else {
+					user.borrowedBooks.forEach(book => {
+						borrowedBooksList.innerHTML += `<li>${book}</li>`;
+					});
+				}
+			}
+			
+			window.onload = loadUserProfile;
+		</script>	
+	</body>
+</html>

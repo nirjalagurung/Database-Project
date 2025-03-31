@@ -1,0 +1,248 @@
+body {
+    font-family: serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+header {
+    background: #962f2f;
+    color: white;
+    padding: 10px;
+}
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+.auth-form {
+    margin: 30px auto;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.welcome {
+    margin: 50px;
+}
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.search-container {
+    margin: 20px auto;
+    width: 50%;
+}
+.search-container input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.search-container button {
+    padding: 10px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.book-list {
+    margin: 20px auto;
+    width: 60%;
+}
+.book-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.book-item .btn {
+    margin-left: 10px;
+    background: black;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.logout-btn {
+    background: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+.container {
+    display: flex;
+}
+.sidebar {
+    width: 200px;
+    background: #f4f4f4;
+    padding: 15px;
+    height: 100vh;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar ul li {
+    margin: 10px 0;
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: black;
+}
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+main {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+	background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    border-radius: 5px;
+}
+.profile-container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+h2, h3 {
+    color: #962f2f;
+}
+
+.profile-details p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+#borrowed-books {
+    list-style: none;
+    padding: 0;
+}
+
+#borrowed-books li {
+    background: #f4f4f4;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.edit-profile-btn {
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin-top: 20px;
+}
+.book-details {
+    max-width: 500px;
+    margin: auto;
+}
+.book-details img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
+.checkout-btn {
+    background: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+}
+.dashboard-buttons button {
+    margin: 10px;
+    padding: 10px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.admin-actions {
+    margin-bottom: 20px;
+}
+
+.admin-actions button {
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.admin-section {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.admin-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-section li {
+    background: #f4f4f4;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #962f2f;
+    color: white;
+}
+
+.return-btn {
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+footer {
+    margin-top: 50px;
+    padding: 10px;
+    background: #f4f4f4;
+}

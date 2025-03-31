@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>Admin Panel</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	</head>
+	<body>
+		<header>
+            <h1> Library!</h1>
+            <button class="logout-btn">Logout</button>
+		</header>
+		<div class="container">
+            <nav class="sidebar">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="booksearch.html">Search Books</a></li>
+                    <li><a href="borrowed.html">My Borrowed Books</a></li>
+                    <li><a href="memberprofile.html">Profile</a></li>
+                    <li><a href="adminpanel.html">Admin Panel</a></li>
+                </ul>
+            </nav>	
+            <main>
+                <h2>Admin Panel</h2>
+                <div class="admin-actions">
+                    <button onclick="showSection('manage-books')">Manage Books</button>
+                    <button onclick="showSection('manage-members')">Manage Members</button>
+                    <button onclick="showSection('transactions')">View Transactions</button>
+                </div>
+                <div id="manage-books" class="admin-section">
+                    <h3>Manage Books</h3>
+                    <button>Add New Book</button>
+                    <ul id="book-list">
+                        <li>Loading books...</li>
+                    </ul>
+                </div>
+                <div id="manage-members" class="admin-section" style="display: none;">
+                    <h3>Manage Members</h3>
+                    <button>Register New Member</button>
+                    <ul id="member-list">
+                        <li>Loading members...</li>
+                    </ul>
+                </div>
+                <div id="transactions" class="admin-section" style="display: none;">
+                    <h3>Transaction Records</h3>
+                    <ul id="transaction-list">
+                        <li>Loading transactions...</li>
+                    </ul>
+                </div>
+            </main>
+		</div>
+        <footer>
+			<p>&copy; 2025 Library!</p>
+		</footer>
+	</body>
+</html>

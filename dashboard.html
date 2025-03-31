@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>Dashboard</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	</head>
+	<body>
+		<header>
+			<h1> Library!</h1>
+			<button class="logout-btn">Logout</button>
+		</header>	
+		<div class="container">
+			<nav class="sidebar">
+				<ul>
+					<li><a href="dashboard.html">Dashboard</a></li>
+					<li><a href="booksearch.html">Search Books</a></li>
+					<li><a href="borrowed.html">My Borrowed Books</a></li>
+					<li><a href="memberprofile.html">Profile</a></li>
+					<li><a href="adminpanel.html">Admin Panel</a></li>
+				</ul>
+			</nav>
+			<main>
+				<h2>Welcome, [User Name]!</h2>
+				<p>Quick access to your library features:</p>
+				<div class="dashboard-buttons">
+					<button onclick="location.href='booksearch.html'">Search for Books</button>
+					<button onclick="location.href='borrowed.html'">View Borrowed Books</button>
+					<button onclick="location.href='memberprofile.html'">Update Profile</button>
+				</div>
+			</main>
+		</div>
+		<footer>
+			<p>&copy; 2025 Library!</p>
+		</footer>
+	</body>
+</html>
