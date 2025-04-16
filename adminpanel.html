@@ -27,17 +27,26 @@
                 </div>
                 <div id="manage-books" class="admin-section">
                     <h3>Manage Books</h3>
-                    <button>Add New Book</button>
                     <ul id="book-list">
                         <li>Loading books...</li>
                     </ul>
+                    <form id="add-book-form">
+						<input type="text" placeholder="Title" required>
+						<input type="text" placeholder="Author" required>
+						<input type="text" placeholder="ISBN" required>
+						<button type="submit">Add Book</button>
+					</form>
                 </div>
                 <div id="manage-members" class="admin-section" style="display: none;">
                     <h3>Manage Members</h3>
-                    <button>Register New Member</button>
                     <ul id="member-list">
                         <li>Loading members...</li>
                     </ul>
+                    <form id="add-member-form">
+						<input type="text" placeholder="Name" required>
+						<input type="text" placeholder="UserID" required>
+						<button type="submit">Register Member</button>
+					</form>
                 </div>
                 <div id="transactions" class="admin-section" style="display: none;">
                     <h3>Transaction Records</h3>
@@ -51,4 +60,54 @@
 			<p>&copy; 2025 Library!</p>
 		</footer>
 	</body>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.admin-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    
+        // Example: simulate loading books
+        document.addEventListener("DOMContentLoaded", () => {
+            const books = [
+                { title: "Frankenstein", author: "Mary Shelley", isbn: "9781234567890" },
+                { title: "Dracula", author: "Bram Stoker", isbn: "9780987654321" }
+            ];
+    
+            const bookList = document.getElementById("book-list");
+            bookList.innerHTML = "";
+            books.forEach(book => {
+                const li = document.createElement("li");
+                li.innerHTML = `${book.title} by ${book.author} (ISBN: ${book.isbn}) <button>Edit</button> <button>Delete</button>`;
+                bookList.appendChild(li);
+            });
+    
+            const members = [
+                { name: "Alice Smith", id: "1234" },
+                { name: "Bob Johnson", id: "5678" }
+            ];
+    
+            const memberList = document.getElementById("member-list");
+            memberList.innerHTML = "";
+            members.forEach(member => {
+                const li = document.createElement("li");
+                li.innerHTML = `${member.name} (${member.id}) <button>Edit</button> <button>Delete</button>`;
+                memberList.appendChild(li);
+            });
+    
+            const transactions = [
+                { user: "Alice Smith", book: "Dracula", due: "2025-04-30" },
+                { user: "Bob Johnson", book: "Frankenstein", due: "2025-05-02" }
+            ];
+    
+            const transactionList = document.getElementById("transaction-list");
+            transactionList.innerHTML = "";
+            transactions.forEach(tx => {
+                const li = document.createElement("li");
+                li.textContent = `${tx.user} borrowed "${tx.book}", due on ${tx.due}`;
+                transactionList.appendChild(li);
+            });
+        });
+    </script>
 </html>
