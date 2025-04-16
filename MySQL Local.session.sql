@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS library_system;
+USE library_system;
+
 CREATE TABLE Author (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL
