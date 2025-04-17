@@ -39,7 +39,7 @@ CREATE TABLE Member_phone (
     FOREIGN KEY (ID) REFERENCES Member(ID)
 );
 
-CREATE TABLE Write (
+CREATE TABLE Writes (
     Author_ID INT,
     ISBN VARCHAR(13),
     FOREIGN KEY (Author_ID) REFERENCES Author(ID),
