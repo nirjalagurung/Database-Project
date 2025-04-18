@@ -2,27 +2,35 @@ package com.library.management.service;
 
 import com.library.management.entity.Book;
 import com.library.management.repository.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import java.util.List;
 
 public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
+    public Book addBook(Book book) {
+        return bookRepository.save(book);
+    }
+
+    public Book getBook(String ISBN) {
+        return bookRepository.findById(ISBN).orElse(null);
+    }
+
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
 
+    // Get Book by ISBN
+    public Book getBookByIsbn(String isbn) {
+        return bookRepository.findByIsbn(isbn);
+    }
+
+    // Get Book by ID
     public Optional<Book> getBookById(Long id) {
         return bookRepository.findById(id);
     }
 
-    public Book saveBook(Book book) {
-        return bookRepository.save(book);
-    }
-
+    // Delete Book by ID
     public void deleteBook(Long id) {
         bookRepository.deleteById(id);
     }
 }
-
